@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Vector DB local storage
+chroma_db/
+*.pkl
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
+
+# Build
+build/
+dist/
+*.egg-info/
+
