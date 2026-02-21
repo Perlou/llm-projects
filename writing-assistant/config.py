@@ -6,9 +6,10 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-# 加载根目录的 .env
-ROOT_DIR = Path(__file__).parent.parent.parent
-load_dotenv(ROOT_DIR / ".env")
+# # 加载根目录的 .env
+# ROOT_DIR = Path(__file__).parent.parent.parent
+# load_dotenv(ROOT_DIR / ".env")
+load_dotenv()
 
 # API Key
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
