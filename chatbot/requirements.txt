@@ -1,0 +1,6 @@
+google-generativeai
+gradio
+python-dotenv
+rich
+tiktoken
+socksio
