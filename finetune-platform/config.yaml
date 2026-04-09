@@ -1,0 +1,65 @@
+# 模型微调配置
+
+# 基础模型
+model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  # 或使用其他模型:
+  # name: meta-llama/Llama-2-7b-hf
+  # name: THUDM/chatglm3-6b
+  trust_remote_code: true
+
+# LoRA 配置
+lora:
+  r: 16 # 秩，越大能力越强，显存占用越多
+  alpha: 32 # 缩放因子，通常设为 2*r
+  dropout: 0.05 # Dropout 率
+  target_modules: # 目标模块
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+# 量化配置 (QLoRA)
+quantization:
+  enabled: false # 是否启用 4-bit 量化
+  bnb_4bit_compute_dtype: float16
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+
+# 训练配置
+training:
+  output_dir: ./outputs
+  num_epochs: 3
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler_type: cosine
+  max_seq_length: 1024
+
+  # 日志和保存
+  logging_steps: 10
+  save_steps: 100
+  save_total_limit: 3
+
+  # 优化
+  fp16: true
+  gradient_checkpointing: true
+  optim: paged_adamw_32bit
+
+# 数据配置
+data:
+  train_file: ./data/processed/train.json
+  eval_file: ./data/processed/eval.json
+  format: alpaca # alpaca 或 sharegpt
+  max_samples: null # 限制样本数，null 表示全部
+
+# 评估配置
+evaluation:
+  do_eval: true
+  eval_steps: 50
+  metric_for_best_model: eval_loss
