@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  llm-serving:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: llm-serving
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-Qwen/Qwen2.5-0.5B-Instruct}
+      - INFERENCE_ENGINE=transformers
+      - MAX_NEW_TOKENS=512
+      - TEMPERATURE=0.7
+    volumes:
+      # 挂载模型缓存目录
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
