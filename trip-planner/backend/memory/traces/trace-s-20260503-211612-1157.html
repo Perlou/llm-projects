@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260503-211612-1157</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260503-211612-1157</h1>
+        <p>生成时间: 2026-05-03 21:16:12</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T21:16:12.376745</span>
+                <span class="event-type">session_start</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "agent_name": "旅行规划助手",
+  "agent_type": "ReActAgent",
+  "config": {
+    "default_model": "gpt-3.5-turbo",
+    "default_provider": "openai",
+    "temperature": 0.7,
+    "max_tokens": null,
+    "debug": false,
+    "log_level": "INFO",
+    "max_history_length": 100,
+    "context_window": 128000,
+    "compression_threshold": 0.8,
+    "min_retain_rounds": 10,
+    "enable_smart_compression": false,
+    "summary_llm_provider": "deepseek",
+    "summary_llm_model": "deepseek-chat",
+    "summary_max_tokens": 800,
+    "summary_temperature": 0.3,
+    "tool_output_max_lines": 2000,
+    "tool_output_max_bytes": 51200,
+    "tool_output_dir": "tool-output",
+    "tool_output_truncate_direction": "head",
+    "trace_enabled": true,
+    "trace_dir": "memory/traces",
+    "trace_sanitize": true,
+    "trace_html_include_raw_response": false,
+    "skills_enabled": true,
+    "skills_dir": "skills",
+    "skills_auto_register": true,
+    "circuit_enabled": true,
+    "circuit_failure_threshold": 3,
+    "circuit_recovery_timeout": 300,
+    "session_enabled": true,
+    "session_dir": "memory/sessions",
+    "auto_save_enabled": false,
+    "auto_save_interval": 10,
+    "subagent_enabled": true,
+    "subagent_max_steps": 15,
+    "subagent_use_light_llm": false,
+    "subagent_light_llm_provider": "deepseek",
+    "subagent_light_llm_model": "deepseek-chat",
+    "todowrite_enabled": true,
+    "todowrite_persistence_dir": "memory/todos",
+    "devlog_enabled": true,
+    "devlog_persistence_dir": "memory/devlogs",
+    "async_enabled": true,
+    "max_concurrent_tools": 3,
+    "hook_timeout_seconds": 5.0,
+    "llm_async_timeout": 120,
+    "tool_async_timeout": 30,
+    "stream_enabled": true,
+    "stream_buffer_size": 100,
+    "stream_include_thinking": true,
+    "stream_include_tool_calls": true,
+    "graph_max_steps": 50,
+    "graph_recursion_limit": 25,
+    "graph_max_concurrent_nodes": 3,
+    "checkpoint_enabled": true,
+    "checkpoint_backend": "json",
+    "checkpoint_dir": "memory/checkpoints",
+    "checkpoint_db_path": "memory/checkpoints.db",
+    "checkpoint_keep_last_n": 100,
+    "hitl_enabled": true,
+    "hitl_interrupt_ttl_seconds": 86400,
+    "structured_output_max_retries": 2,
+    "eval_enabled": true,
+    "eval_output_dir": "memory/eval",
+    "eval_default_parallel": 4,
+    "eval_judge_model": "",
+    "eval_judge_base_url": "",
+    "eval_judge_api_key": ""
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T21:16:25.851385</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "role": "user",
+  "content": "我准备从 2026-05-03 到 2026-05-05 去 广州 旅游 3 天，住宿偏好「经济型酒店」，风格偏好「历史文化, 美食」。\n请用高德地图工具：\n  1) 搜索 广州 跟「历史文化, 美食」相关的景点（关键词分别试 1-2 个）\n  2) 查询 广州 的天气\n  3) 搜索 广州 的「经济型酒店」候选酒店\n信息齐全后，整理成清晰的素材文本（保留景点名、地址、经纬度），调 Finish 返回。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event error">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T21:16:26.096018</span>
+                <span class="event-type">error</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "error_type": "LLM_ERROR",
+  "message": "Using SOCKS proxy, but the 'socksio' package is not installed. Make sure to install httpx using `pip install httpx[socks]`."
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T21:16:26.103823</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-4')">[▼ 详情]</span>
+            </div>
+            <div id="details-4" class="details">
+                <pre>{
+  "duration": 0.25291,
+  "total_steps": 1,
+  "final_answer": "抱歉，我无法在限定步数内完成这个任务。",
+  "status": "timeout"
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">13.7s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">0</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td colspan="2">无工具调用</td></tr>
+        </table>
+
+        
+        <h3>❌ 错误列表 (1)</h3>
+        <ul class="error-list">
+            <li>Step 1: <strong>LLM_ERROR</strong> - Using SOCKS proxy, but the 'socksio' package is not installed. Make sure to install httpx using `pip install httpx[socks]`.</li>
+
+        </ul>
+
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

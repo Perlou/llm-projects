@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260503-231923-8e18</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260503-231923-8e18</h1>
+        <p>生成时间: 2026-05-03 23:19:23</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T23:19:23.254811</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "role": "user",
+  "content": "我准备从 2026-05-03 到 2026-05-04 去 大理 旅游 2 天，住宿偏好「豪华酒店」，风格偏好「自然风光」。\n请用高德地图工具：\n  1) 搜索 大理 跟「自然风光」相关的景点（关键词分别试 1-2 个）\n  2) 查询 大理 的天气\n  3) 搜索 大理 的「豪华酒店」候选酒店\n信息齐全后，整理成清晰的素材文本（保留景点名、地址、经纬度），调 Finish 返回。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T23:19:27.435801</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "content": "",
+  "tool_calls": 1,
+  "usage": {
+    "total_tokens": 4552,
+    "cost": 0.0
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T23:19:27.436073</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "tool_name": "Thought",
+  "tool_call_id": "call_00_CXMRCI8NsJUytcPHIpoZ6988",
+  "args": {
+    "reasoning": "用户需求梳理：\n- 目的地：大理\n- 时间：2026年5月3日-5月4日，共2天\n- 住宿偏好：豪华酒店\n- 风格偏好：自然风光\n\n我需要：\n1. 搜大理自然风光景点（尝试多个关键词：大理自然风光、大理风景区、大理洱海、大理苍山）\n2. 查大理天气\n3. 搜大理豪华酒店\n\n现在开始调用工具。先并行搜索几个不同关键词的景点、天气和酒店。"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 1</span>
+                <span class="timestamp">2026-05-03T23:19:27.436244</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-4')">[▼ 详情]</span>
+            </div>
+            <div id="details-4" class="details">
+                <pre>{
+  "tool_name": "Thought",
+  "tool_call_id": "call_00_CXMRCI8NsJUytcPHIpoZ6988",
+  "status": "success",
+  "result": "推理: 用户需求梳理：\n- 目的地：大理\n- 时间：2026年5月3日-5月4日，共2天\n- 住宿偏好：豪华酒店\n- 风格偏好：自然风光\n\n我需要：\n1. 搜大理自然风光景点（尝试多个关键词：大理自然风光、大理风景区、大理洱海、大理苍山）\n2. 查大理天气\n3. 搜大理豪华酒店\n\n现在开始调用工具。先并行搜索几个不同关键词的景点、天气和酒店。"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:33.531601</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-5')">[▼ 详情]</span>
+            </div>
+            <div id="details-5" class="details">
+                <pre>{
+  "content": "好的！我先用多个关键词并行搜索大理的自然风光景点、天气和豪华酒店。",
+  "tool_calls": 6,
+  "usage": {
+    "total_tokens": 5140,
+    "cost": 0.0
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:33.531896</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-6')">[▼ 详情]</span>
+            </div>
+            <div id="details-6" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_00_6mFzZC48zoC1Kknc9XIS2159",
+  "args": {
+    "keywords": "大理自然风光",
+    "city": "大理",
+    "citylimit": "true"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:34.745573</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-7')">[▼ 详情]</span>
+            </div>
+            <div id="details-7" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_00_6mFzZC48zoC1Kknc9XIS2159",
+  "result": "{\n  \"suggestion\": {\n    \"keywords\": [],\n    \"cities\": []\n  },\n  \"pois\": [\n    {\n      \"id\": \"B0FFFED4AQ\",\n      \"name\": \"南水库\",\n      \"address\": \"一塔路42号大理古城内(东侧)\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0368000BB\",\n      \"name\": \"才村码头\",\n      \"address\": \"月华路尽头\",\n      \"typecode\": \"150300\"\n    },\n    {\n      \"id\": \"B0FFGO698V\",\n      \"name\": \"玉带云游路\",\n      \"address\": \"苍山景区\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFKYFO0F\",\n      \"name\": \"百竹园\",\n      \"address\": \"中和路与叶榆路交叉口西60米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B036815RCR\",\n      \"name\": \"聚影池\",\n      \"address\": \"崇圣寺三塔文化旅游区(东北角)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0K2297F4D\",\n      \"name\": \"龙龛夫妻树\",\n      \"address\": \"大理六悦海景客栈(龙龛码头店)东侧180米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFK7L6VI\",\n      \"name\": \"龙龛古渡\",\n      \"address\": \"大理镇环海西路东30米\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0LR9CPOED\",\n      \"name\": \"大理张家翠园半山花谷\",\n      \"address\": \"隐仙路南50米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFGATUMX\",\n      \"name\": \"双鸳溪\",\n      \"address\": \"星期五超市东北侧130米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0LB4CKT90\",\n      \"name\": \"洱海夕阳树\",\n      \"address\": \"大理六悦海景客栈(龙龛码头店)东侧140米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFG28M7Z\",\n      \"name\": \"苍山景区-凤眼洞\",\n      \"address\": \"世界地质公园\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0368151FW\",\n      \"name\": \"大理桃溪生态谷\",\n      \"address\": \"大理镇三文笔村\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0JB4ZWS4U\",\n      \"name\": \"榆城之森\",\n      \"address\": \"双鹤路3号路\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0FFG295CI\",\n      \"name\": \"苍山景区-苍山守护神\",\n      \"address\": \"世界地质公园\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0FFKHEFD0\",\n      \"name\": \"桃溪\",\n      \"address\": \"世界地质公园内\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFK87NH5\",\n      \"name\": \"洱海岩岛\",\n      \"address\": \"苍山世界地质公园内\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0FFK7W7DT\",\n      \"name\": \"苍山景区-糜棱岩\",\n      \"address\": \"苍山世界地质公园内\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0IUH7SJK6\",\n      \"name\": \"洱海生态廊道北段\",\n      \"address\": \"丰凡网红打卡点东南侧\",\n      \"typecode\": \"080300\"\n    },\n    {\n      \"id\": \"B0KUBRUL5H\",\n      \"name\": \"邑尾湿地\",\n      \"address\": \"214国道与一塔巷交叉口西北60米\",\n      \"typecode\": \"110101\"\n    },\n    {\n      \"id\": \"B0FFGHMRKZ\",\n      \"name\": \"绿玉溪\",\n      \"address\": \"苍山景区内\",\n      \"typecode\": \"110000\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:34.746069</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-8')">[▼ 详情]</span>
+            </div>
+            <div id="details-8" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_01_SIuin5TSab7CLx7YgyDR6337",
+  "args": {
+    "keywords": "大理风景区",
+    "city": "大理",
+    "citylimit": "true"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:35.446156</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-9')">[▼ 详情]</span>
+            </div>
+            <div id="details-9" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_01_SIuin5TSab7CLx7YgyDR6337",
+  "result": "{\n  \"suggestion\": {\n    \"keywords\": [],\n    \"cities\": []\n  },\n  \"pois\": [\n    {\n      \"id\": \"B0FFFZH0RQ\",\n      \"name\": \"大理古城\",\n      \"address\": \"护国路172号\",\n      \"typecode\": \"110202\"\n    },\n    {\n      \"id\": \"B0368000BF\",\n      \"name\": \"崇圣寺三塔文化旅游区\",\n      \"address\": \"大理镇三塔公园\",\n      \"typecode\": \"110205\"\n    },\n    {\n      \"id\": \"B0H6R9A7HN\",\n      \"name\": \"崇圣寺三塔文化旅游区游客中心-影视厅\",\n      \"address\": \"崇圣寺三塔文化旅游区内(东侧)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0G04D7VHK\",\n      \"name\": \"崇圣寺三塔天空之镜\",\n      \"address\": \"文笔路崇圣寺三塔文化旅游区(东侧)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B036815DC0\",\n      \"name\": \"天龙八部影视城\",\n      \"address\": \"大理古城(洗马潭索道东北)\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0K39AARNI\",\n      \"name\": \"大理古城国家级旅游度假区\",\n      \"address\": \"人民路与步行街交叉口东南300米\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B036800H2Q\",\n      \"name\": \"大理古城-总统兵马大元帅府\",\n      \"address\": \"复兴路111号\",\n      \"typecode\": \"140100|110000\"\n    },\n    {\n      \"id\": \"B0368000M7\",\n      \"name\": \"大理古城红龙井\",\n      \"address\": \"护国路172号大理古城(西南角)\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFKFTE6Y\",\n      \"name\": \"苍山门\",\n      \"address\": \"护国路172号大理古城内(西侧)\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B036815OA5\",\n      \"name\": \"畅游\",\n      \"address\": \"人民路31号(近博爱路)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0J245WMUV\",\n      \"name\": \"匠造坊非遗景区\",\n      \"address\": \"新生巷11号\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFGLPT5G\",\n      \"name\": \"山水风月\",\n      \"address\": \"一塔路42号大理古城(西南角)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0IUV7SY7F\",\n      \"name\": \"弘圣寺一塔文化旅游区\",\n      \"address\": \"大理镇一塔路上段\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B036800C0O\",\n      \"name\": \"三塔倒影公园\",\n      \"address\": \"大理镇三塔公园南侧\",\n      \"typecode\": \"110101\"\n    },\n    {\n      \"id\": \"B0FFK4DVHX\",\n      \"name\": \"崇圣寺三塔-塔区\",\n      \"address\": \"(中和镇)西北2公里的苍山应乐峰下崇圣寺三塔文化旅游区内(东侧)\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B036815D3H\",\n      \"name\": \"大理密湾旅游文化小镇\",\n      \"address\": \"大丽公路和月华路交汇处\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0FFGSH0S9\",\n      \"name\": \"天憙园皇家园林景区\",\n      \"address\": \"大理镇大理古城南门双鹤路中段\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0368000MS\",\n      \"name\": \"文献楼\",\n      \"address\": \"大理镇文献路东50米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFL6DPHO\",\n      \"name\": \"大理水花庄园\",\n      \"address\": \"大理镇才村月华路\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0K65CJMDX\",\n      \"name\": \"大理苍海云上草原\",\n      \"address\": \"大理镇三塔北路苍海度假村内\",\n      \"typecode\": \"170400\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:35.446557</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-10')">[▼ 详情]</span>
+            </div>
+            <div id="details-10" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_02_CgZFBiXbWVGNalOgX7aO7276",
+  "args": {
+    "keywords": "大理洱海",
+    "city": "大理",
+    "citylimit": "true"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:36.009452</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-11')">[▼ 详情]</span>
+            </div>
+            <div id="details-11" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_02_CgZFBiXbWVGNalOgX7aO7276",
+  "result": "{\n  \"suggestion\": {\n    \"keywords\": [],\n    \"cities\": []\n  },\n  \"pois\": [\n    {\n      \"id\": \"B0368006Y0\",\n      \"name\": \"洱海公园\",\n      \"address\": \"洱河南路1号\",\n      \"typecode\": \"110202\"\n    },\n    {\n      \"id\": \"B0L2CSGNDX\",\n      \"name\": \"洱海\",\n      \"address\": \"大理市\",\n      \"typecode\": \"190205\"\n    },\n    {\n      \"id\": \"B0FFGF5I0L\",\n      \"name\": \"洱海大游船\",\n      \"address\": \"洱河南路大理港码头\",\n      \"typecode\": \"110000|080000\"\n    },\n    {\n      \"id\": \"B0FFI2ZDPF\",\n      \"name\": \"大理洱海之门休闲酒店\",\n      \"address\": \"机场路洱海国际生态城19栋\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFGKAG3J\",\n      \"name\": \"大理洱海人家海景客栈(环海东路分店)\",\n      \"address\": \"环海东路大理洱海人家海景客栈\",\n      \"typecode\": \"100200\"\n    },\n    {\n      \"id\": \"B0I3LRZGN3\",\n      \"name\": \"洱海\",\n      \"address\": \"大理市\",\n      \"typecode\": \"190205\"\n    },\n    {\n      \"id\": \"B0LA7UVJTK\",\n      \"name\": \"大理洱海站(建设中)\",\n      \"address\": [],\n      \"typecode\": \"150200\"\n    },\n    {\n      \"id\": \"B0KGF53CG4\",\n      \"name\": \"大理洱海碑观景台\",\n      \"address\": \"机场路188号\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B036814YOL\",\n      \"name\": \"大理洱海古镇大酒店\",\n      \"address\": \"复兴路204号\",\n      \"typecode\": \"100103\"\n    },\n    {\n      \"id\": \"B0FFIG7M6D\",\n      \"name\": \"大理洱海流名海景客栈(洱海公园店)\",\n      \"address\": \"洱海国际生态城2栋\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0J69LTX4U\",\n      \"name\": \"大理洱海·风屿湖海景客栈\",\n      \"address\": \"大理镇下鸡邑村7组561号\",\n      \"typecode\": \"100200\"\n    },\n    {\n      \"id\": \"B0IAB4LA1F\",\n      \"name\": \"大理洱海·千山继酒店\",\n      \"address\": \"海东镇文笔村委会二组43号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0H0MONRN4\",\n      \"name\": \"洱海游船大船售票处\",\n      \"address\": \"下关街道大理滨海俊园S-2-07西北方向190米\",\n      \"typecode\": \"070306\"\n    },\n    {\n      \"id\": \"B0J026HC2C\",\n      \"name\": \"大理洱海·湖居岁月海景客栈\",\n      \"address\": \"马久邑村5社\",\n      \"typecode\": \"100200\"\n    },\n    {\n      \"id\": \"B0J3KSHFBX\",\n      \"name\": \"大理洱海·無云设计师海景酒店\",\n      \"address\": \"大理镇下鸡邑3组171号\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0KGLSSJRT\",\n      \"name\": \"洱海\",\n      \"address\": \"挖色镇大理海印学校北侧70米\",\n      \"typecode\": \"190205|110000\"\n    },\n    {\n      \"id\": \"B0LD4SNL40\",\n      \"name\": \"大理洱海城际酒店\",\n      \"address\": \"大理创新工业园区满江街道满江村平安路大华锦绣商业楼1层、2层、8至15层\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0KUBRTQHG\",\n      \"name\": \"大理洱海旅游文化风情园\",\n      \"address\": \"机场路与平安路交叉口西480米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0FFFXYZGX\",\n      \"name\": \"大理苍海酒店(大理高铁站洱海公园店)\",\n      \"address\": \"西屏路182号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0K1DADB52\",\n      \"name\": \"大理洱海公园美仑酒店\",\n      \"address\": \"巍山路267号\",\n      \"typecode\": \"100100\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:36.009842</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-12')">[▼ 详情]</span>
+            </div>
+            <div id="details-12" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_03_ZlMM8F8wBQiosvJ1PDmk4551",
+  "args": {
+    "keywords": "大理苍山",
+    "city": "大理",
+    "citylimit": "true"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:37.647554</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-13')">[▼ 详情]</span>
+            </div>
+            <div id="details-13" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_03_ZlMM8F8wBQiosvJ1PDmk4551",
+  "result": "{\n  \"suggestion\": {\n    \"keywords\": [],\n    \"cities\": []\n  },\n  \"pois\": [\n    {\n      \"id\": \"B0368005Z0\",\n      \"name\": \"大理苍山世界地质公园\",\n      \"address\": \"Z013附近\",\n      \"typecode\": \"110202|110101\"\n    },\n    {\n      \"id\": \"B0FFG1O1C4\",\n      \"name\": \"苍山景区售票处\",\n      \"address\": \"世界地质公园东2门旁\",\n      \"typecode\": \"070306\"\n    },\n    {\n      \"id\": \"B0FFGE0P7N\",\n      \"name\": \"大理苍山小院\",\n      \"address\": \"上末上村\",\n      \"typecode\": \"120302\"\n    },\n    {\n      \"id\": \"B0FFG3Y4GP\",\n      \"name\": \"大理苍山世界地质公园售票处\",\n      \"address\": \"Z013苍山感通索道附近\",\n      \"typecode\": \"070306\"\n    },\n    {\n      \"id\": \"B0FFKFTE6Y\",\n      \"name\": \"苍山门\",\n      \"address\": \"护国路172号大理古城内(西侧)\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0L67MM87M\",\n      \"name\": \"大理苍山·梵花度假酒店\",\n      \"address\": \"大理古城中和村8组2区196号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0K0UZ6NCZ\",\n      \"name\": \"大理苍山小院一期\",\n      \"address\": [],\n      \"typecode\": \"120302\"\n    },\n    {\n      \"id\": \"B0FFJAJSDN\",\n      \"name\": \"大理苍山石门关旅游度假区\",\n      \"address\": \"苍山西镇\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B036800GPS\",\n      \"name\": \"苍山景区-中和寺\",\n      \"address\": \"大理镇苍山国家地质公园中和寺\",\n      \"typecode\": \"110205\"\n    },\n    {\n      \"id\": \"B0L6FAC0EK\",\n      \"name\": \"大理苍山小院二期\",\n      \"address\": \"大理苍山小院西北侧约200米\",\n      \"typecode\": \"120302\"\n    },\n    {\n      \"id\": \"B0FFG1WKDB\",\n      \"name\": \"苍山景区-凤鸣溪\",\n      \"address\": \"大理镇苍山景区内\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0368000Y6\",\n      \"name\": \"苍山饭店\",\n      \"address\": \"苍山路19号\",\n      \"typecode\": \"100103|050000\"\n    },\n    {\n      \"id\": \"B0L1CK4RAT\",\n      \"name\": \"大理苍山·海西西自驾旅居民宿\",\n      \"address\": \"银桥镇银桥村委会2社43号\",\n      \"typecode\": \"100100|100200\"\n    },\n    {\n      \"id\": \"B0LBTU4ZLY\",\n      \"name\": \"大理苍山小院拾风苑\",\n      \"address\": \"弘圣路1号\",\n      \"typecode\": \"120302\"\n    },\n    {\n      \"id\": \"B0FFG295CI\",\n      \"name\": \"苍山景区-苍山守护神\",\n      \"address\": \"世界地质公园\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0FFLATH3I\",\n      \"name\": \"苍山国家地质公园-游客中心\",\n      \"address\": \"苍山世界地质公园内\",\n      \"typecode\": \"070000\"\n    },\n    {\n      \"id\": \"B0LR5UBKYJ\",\n      \"name\": \"大理苍山中和索道\",\n      \"address\": \"隐仙路与弘圣路交叉口西380米\",\n      \"typecode\": \"110200\"\n    },\n    {\n      \"id\": \"B0LD5C6Q86\",\n      \"name\": \"苍山市集\",\n      \"address\": \"复兴路118号\",\n      \"typecode\": \"060000\"\n    },\n    {\n      \"id\": \"B0FFG28M7Z\",\n      \"name\": \"苍山景区-凤眼洞\",\n      \"address\": \"世界地质公园\",\n      \"typecode\": \"110000\"\n    },\n    {\n      \"id\": \"B0KUCNITQC\",\n      \"name\": \"大理苍山伴山悦海·海景别墅\",\n      \"address\": \"大理镇苍海高尔夫度假村一期十栋\",\n      \"typecode\": \"100100\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:37.647946</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-14')">[▼ 详情]</span>
+            </div>
+            <div id="details-14" class="details">
+                <pre>{
+  "tool_name": "maps_weather",
+  "tool_call_id": "call_04_CcER1iAxXDQXFgywamt28462",
+  "args": {
+    "city": "大理"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:38.100234</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-15')">[▼ 详情]</span>
+            </div>
+            <div id="details-15" class="details">
+                <pre>{
+  "tool_name": "maps_weather",
+  "tool_call_id": "call_04_CcER1iAxXDQXFgywamt28462",
+  "result": "{\n  \"city\": \"大理市\",\n  \"forecasts\": [\n    {\n      \"date\": \"2026-05-03\",\n      \"week\": \"7\",\n      \"dayweather\": \"中雨\",\n      \"nightweather\": \"小雨\",\n      \"daytemp\": \"14\",\n      \"nighttemp\": \"8\",\n      \"daywind\": \"北\",\n      \"nightwind\": \"北\",\n      \"daypower\": \"1-3\",\n      \"nightpower\": \"1-3\",\n      \"daytemp_float\": \"14.0\",\n      \"nighttemp_float\": \"8.0\"\n    },\n    {\n      \"date\": \"2026-05-04\",\n      \"week\": \"1\",\n      \"dayweather\": \"小雨\",\n      \"nightweather\": \"多云\",\n      \"daytemp\": \"15\",\n      \"nighttemp\": \"8\",\n      \"daywind\": \"北\",\n      \"nightwind\": \"北\",\n      \"daypower\": \"1-3\",\n      \"nightpower\": \"1-3\",\n      \"daytemp_float\": \"15.0\",\n      \"nighttemp_float\": \"8.0\"\n    },\n    {\n      \"date\": \"2026-05-05\",\n      \"week\": \"2\",\n      \"dayweather\": \"多云\",\n      \"nightweather\": \"多云\",\n      \"daytemp\": \"21\",\n      \"nighttemp\": \"10\",\n      \"daywind\": \"北\",\n      \"nightwind\": \"北\",\n      \"daypower\": \"1-3\",\n      \"nightpower\": \"1-3\",\n      \"daytemp_float\": \"21.0\",\n      \"nighttemp_float\": \"10.0\"\n    },\n    {\n      \"date\": \"2026-05-06\",\n      \"week\": \"3\",\n      \"dayweather\": \"多云\",\n      \"nightweather\": \"多云\",\n      \"daytemp\": \"21\",\n      \"nighttemp\": \"11\",\n      \"daywind\": \"北\",\n      \"nightwind\": \"北\",\n      \"daypower\": \"1-3\",\n      \"nightpower\": \"1-3\",\n      \"daytemp_float\": \"21.0\",\n      \"nighttemp_float\": \"11.0\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:38.100547</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-16')">[▼ 详情]</span>
+            </div>
+            <div id="details-16" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_05_HCbasWacoXdAGnI5wNPr0064",
+  "args": {
+    "keywords": "大理豪华酒店",
+    "city": "大理",
+    "citylimit": "true"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 2</span>
+                <span class="timestamp">2026-05-03T23:19:38.660719</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-17')">[▼ 详情]</span>
+            </div>
+            <div id="details-17" class="details">
+                <pre>{
+  "tool_name": "maps_text_search",
+  "tool_call_id": "call_05_HCbasWacoXdAGnI5wNPr0064",
+  "result": "{\n  \"suggestion\": {\n    \"keywords\": [],\n    \"cities\": []\n  },\n  \"pois\": [\n    {\n      \"id\": \"B0FFHS2FCB\",\n      \"name\": \"既下山SUNYATA酒店\",\n      \"address\": \"叶榆路南51号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0HR1BCXA0\",\n      \"name\": \"大理古城层林酒店\",\n      \"address\": \"大理镇银苍路41号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFHDWMQD\",\n      \"name\": \"吾乡间·寻幽隐奢美宿(古城店)\",\n      \"address\": \"人民路上段22号\",\n      \"typecode\": \"100200\"\n    },\n    {\n      \"id\": \"B0FFHWC45O\",\n      \"name\": \"大理古城红龙井酒店\",\n      \"address\": \"大理古城博爱路红龙井16号\",\n      \"typecode\": \"100102\"\n    },\n    {\n      \"id\": \"B036815RS4\",\n      \"name\": \"大理THE ONE古城一号院\",\n      \"address\": \"大理古城博爱路9号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0J23U966E\",\n      \"name\": \"梦景雅苑酒店(大理古城店)\",\n      \"address\": \"一塔路47号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFHF0KWP\",\n      \"name\": \"泊心云舍·MCA(大理古城)\",\n      \"address\": \"文献路44号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0GULMRIJR\",\n      \"name\": \"阿凯缇娅·云锦月酒店(大理古城店)\",\n      \"address\": \"大理镇大理古城北门街167号\",\n      \"typecode\": \"100100|100200\"\n    },\n    {\n      \"id\": \"B0FFFHB4G5\",\n      \"name\": \"大理桃溪梦蝶秘境庄园\",\n      \"address\": \"北门街160号,近崇圣寺三塔\",\n      \"typecode\": \"100102\"\n    },\n    {\n      \"id\": \"B0I6NBILDJ\",\n      \"name\": \"大理白平衡WHITEBALANCE设计师度假酒店\",\n      \"address\": \"大理古城北门街170号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFK084YH\",\n      \"name\": \"大理茗月堂园林设计师度假酒店\",\n      \"address\": \"北门街168号\",\n      \"typecode\": \"100200\"\n    },\n    {\n      \"id\": \"B0L6H5W4AZ\",\n      \"name\": \"大理古城悦山海伴山墅奢酒店\",\n      \"address\": \"大理镇弘圣路21号\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0FFIGXKXM\",\n      \"name\": \"大理古城五彩云酒店\",\n      \"address\": \"大理镇绿玉路60号\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0KKXM4QWL\",\n      \"name\": \"大理王宫酒店\",\n      \"address\": \"大理镇大理古城西门村委会天龙八部影视城弹石路以西\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFJYK99L\",\n      \"name\": \"大理颐雲酒店\",\n      \"address\": \"大理镇弘圣路77号\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0FFJ58FUZ\",\n      \"name\": \"大理麓椿花园酒店\",\n      \"address\": \"大理古城弘圣路5号大理大学古城校区与大理财校中间\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0FFIYRXYP\",\n      \"name\": \"SLH·大理海纳尔云墅度假酒店\",\n      \"address\": \"苍海高尔夫国际社区2-5栋\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0HR679QHS\",\n      \"name\": \"大理安野藏山·VILLA度假别墅\",\n      \"address\": \"山水间三期国际艺术家园灰雁7-1\",\n      \"typecode\": \"100100\"\n    },\n    {\n      \"id\": \"B0G0Z7Z6GT\",\n      \"name\": \"吾乡间·林舞鸟鸣庄园(田野店)\",\n      \"address\": \"上鸡邑村委会7组打场内\",\n      \"typecode\": \"100000\"\n    },\n    {\n      \"id\": \"B0G0B14JKG\",\n      \"name\": \"大理古城安隅酒店\",\n      \"address\": \"大理镇叶榆路7号\",\n      \"typecode\": \"100000\"\n    }\n  ]\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:48.223996</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-18')">[▼ 详情]</span>
+            </div>
+            <div id="details-18" class="details">
+                <pre>{
+  "content": "数据已经收集得不错了！让我进一步获取几个核心自然风光景点的详细信息（含经纬度）。",
+  "tool_calls": 9,
+  "usage": {
+    "total_tokens": 11786,
+    "cost": 0.0
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:48.224295</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-19')">[▼ 详情]</span>
+            </div>
+            <div id="details-19" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_00_rWT2ZNkJ33qdAkw4po707541",
+  "args": {
+    "id": "B0L2CSGNDX"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:48.633141</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-20')">[▼ 详情]</span>
+            </div>
+            <div id="details-20" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_00_rWT2ZNkJ33qdAkw4po707541",
+  "result": "{\n  \"id\": \"B0L2CSGNDX\",\n  \"name\": \"洱海\",\n  \"location\": \"100.266116,25.643582\",\n  \"address\": \"大理市\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"地名地址信息;自然地名;湖泊\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.7\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:48.633338</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-21')">[▼ 详情]</span>
+            </div>
+            <div id="details-21" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_01_9GninuqAieOZtSORCE0M2223",
+  "args": {
+    "id": "B0368005Z0"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.035144</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-22')">[▼ 详情]</span>
+            </div>
+            <div id="details-22" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_01_9GninuqAieOZtSORCE0M2223",
+  "result": "{\n  \"id\": \"B0368005Z0\",\n  \"name\": \"大理苍山世界地质公园\",\n  \"location\": \"100.119072,25.657252\",\n  \"address\": \"Z013附近\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;国家级景点|风景名胜;公园广场;公园\",\n  \"alias\": \"点苍山\",\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 08:00-18:00\",\n  \"level\": [],\n  \"rating\": \"4.7\",\n  \"open_time\": \"08:00-18:00\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.035335</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-23')">[▼ 详情]</span>
+            </div>
+            <div id="details-23" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_02_7n0neapdlHBGZI35H8rx4317",
+  "args": {
+    "id": "B0368000BF"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.429195</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-24')">[▼ 详情]</span>
+            </div>
+            <div id="details-24" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_02_7n0neapdlHBGZI35H8rx4317",
+  "result": "{\n  \"id\": \"B0368000BF\",\n  \"name\": \"崇圣寺三塔文化旅游区\",\n  \"location\": \"100.143044,25.704129\",\n  \"address\": \"大理镇三塔公园\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;寺庙道观\",\n  \"alias\": \"崇圣寺三塔公园\",\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 07:30-18:30 最晚进入17:00\",\n  \"level\": \"AAAAA\",\n  \"rating\": \"4.8\",\n  \"open_time\": \"07:30-18:30\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.429429</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-25')">[▼ 详情]</span>
+            </div>
+            <div id="details-25" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_03_CDtKw5Xsz57myw3ofZSy4204",
+  "args": {
+    "id": "B0FFFZH0RQ"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.833755</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-26')">[▼ 详情]</span>
+            </div>
+            <div id="details-26" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_03_CDtKw5Xsz57myw3ofZSy4204",
+  "result": "{\n  \"id\": \"B0FFFZH0RQ\",\n  \"name\": \"大理古城\",\n  \"location\": \"100.164000,25.694836\",\n  \"address\": \"护国路172号\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;国家级景点\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 00:00-24:00\",\n  \"level\": \"AAAA\",\n  \"rating\": \"4.8\",\n  \"open_time\": \"24小时营业\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:49.833945</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-27')">[▼ 详情]</span>
+            </div>
+            <div id="details-27" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_04_8K6SSCc3N42qU3Xlemu38860",
+  "args": {
+    "id": "B0368006Y0"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:50.232664</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-28')">[▼ 详情]</span>
+            </div>
+            <div id="details-28" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_04_8K6SSCc3N42qU3Xlemu38860",
+  "result": "{\n  \"id\": \"B0368006Y0\",\n  \"name\": \"洱海公园\",\n  \"location\": \"100.247321,25.603053\",\n  \"address\": \"洱河南路1号\",\n  \"business_area\": \"开发区\",\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;国家级景点\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 00:00-24:00\",\n  \"level\": \"AAAA\",\n  \"rating\": \"4.8\",\n  \"open_time\": \"24小时营业\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:50.232857</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-29')">[▼ 详情]</span>
+            </div>
+            <div id="details-29" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_05_gXKoLEBh7ZiZ0gs8HApJ0432",
+  "args": {
+    "id": "B036815DC0"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:50.635615</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-30')">[▼ 详情]</span>
+            </div>
+            <div id="details-30" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_05_gXKoLEBh7ZiZ0gs8HApJ0432",
+  "result": "{\n  \"id\": \"B036815DC0\",\n  \"name\": \"天龙八部影视城\",\n  \"location\": \"100.149121,25.680112\",\n  \"address\": \"大理古城(洗马潭索道东北)\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;风景名胜\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 10:00-22:00 最晚进入21:00\",\n  \"level\": \"AAA\",\n  \"rating\": \"4.4\",\n  \"open_time\": \"10:00-22:00\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:50.635799</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-31')">[▼ 详情]</span>
+            </div>
+            <div id="details-31" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_06_gh2E1dn6tzMKELwedR2e7405",
+  "args": {
+    "id": "B0368151FW"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:51.015795</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-32')">[▼ 详情]</span>
+            </div>
+            <div id="details-32" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_06_gh2E1dn6tzMKELwedR2e7405",
+  "result": "{\n  \"id\": \"B0368151FW\",\n  \"name\": \"大理桃溪生态谷\",\n  \"location\": \"100.135807,25.697116\",\n  \"address\": \"大理镇三文笔村\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜;风景名胜\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": \"周一至周日 00:00-24:00\",\n  \"level\": [],\n  \"rating\": \"3.9\",\n  \"open_time\": \"24小时营业\",\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:51.015967</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-33')">[▼ 详情]</span>
+            </div>
+            <div id="details-33" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_07_TeWOr0xlGtCUkTu8ng3J0984",
+  "args": {
+    "id": "B0IUH7SJK6"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:51.400117</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-34')">[▼ 详情]</span>
+            </div>
+            <div id="details-34" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_07_TeWOr0xlGtCUkTu8ng3J0984",
+  "result": "{\n  \"id\": \"B0IUH7SJK6\",\n  \"name\": \"洱海生态廊道北段\",\n  \"location\": \"100.166981,25.736484\",\n  \"address\": \"丰凡网红打卡点东南侧\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"体育休闲服务;娱乐场所;娱乐场所\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:51.400313</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-35')">[▼ 详情]</span>
+            </div>
+            <div id="details-35" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_08_EwqzUpowqeumtn8aMsgo0092",
+  "args": {
+    "id": "B0FFK7W7DT"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 3</span>
+                <span class="timestamp">2026-05-03T23:19:51.813616</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-36')">[▼ 详情]</span>
+            </div>
+            <div id="details-36" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_08_EwqzUpowqeumtn8aMsgo0092",
+  "result": "{\n  \"id\": \"B0FFK7W7DT\",\n  \"name\": \"苍山景区-糜棱岩\",\n  \"location\": \"100.142162,25.659843\",\n  \"address\": \"苍山世界地质公园内\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"风景名胜;风景名胜相关;旅游景点\",\n  \"alias\": [],\n  \"cost\": [],\n  \"opentime2\": [],\n  \"level\": [],\n  \"rating\": \"3.5\",\n  \"open_time\": [],\n  \"ticket_ordering\": \"0\"\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:56.508508</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-37')">[▼ 详情]</span>
+            </div>
+            <div id="details-37" class="details">
+                <pre>{
+  "content": "再来看看几家豪华酒店的详细信息，方便推荐。",
+  "tool_calls": 7,
+  "usage": {
+    "total_tokens": 13440,
+    "cost": 0.0
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:56.508761</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-38')">[▼ 详情]</span>
+            </div>
+            <div id="details-38" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_00_mpJhdk6NPJeW5V4UQa642643",
+  "args": {
+    "id": "B0FFHS2FCB"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:56.934139</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-39')">[▼ 详情]</span>
+            </div>
+            <div id="details-39" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_00_mpJhdk6NPJeW5V4UQa642643",
+  "result": "{\n  \"id\": \"B0FFHS2FCB\",\n  \"name\": \"既下山SUNYATA酒店\",\n  \"location\": \"100.166743,25.694729\",\n  \"address\": \"叶榆路南51号\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;宾馆酒店;宾馆酒店\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.7\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"0\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:56.934344</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-40')">[▼ 详情]</span>
+            </div>
+            <div id="details-40" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_01_9KqByeAKCsSuL0HMhAtR3927",
+  "args": {
+    "id": "B0FFHWC45O"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:57.339533</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-41')">[▼ 详情]</span>
+            </div>
+            <div id="details-41" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_01_9KqByeAKCsSuL0HMhAtR3927",
+  "result": "{\n  \"id\": \"B0FFHWC45O\",\n  \"name\": \"大理古城红龙井酒店\",\n  \"location\": \"100.160632,25.690828\",\n  \"address\": \"大理古城博爱路红龙井16号\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;宾馆酒店;五星级宾馆\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.7\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:57.339715</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-42')">[▼ 详情]</span>
+            </div>
+            <div id="details-42" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_02_BDVQnb81CM4grC9xgHOR7938",
+  "args": {
+    "id": "B0FFJ58FUZ"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:57.755059</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-43')">[▼ 详情]</span>
+            </div>
+            <div id="details-43" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_02_BDVQnb81CM4grC9xgHOR7938",
+  "result": "{\n  \"id\": \"B0FFJ58FUZ\",\n  \"name\": \"大理麓椿花园酒店\",\n  \"location\": \"100.161368,25.668575\",\n  \"address\": \"大理古城弘圣路5号大理大学古城校区与大理财校中间\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;宾馆酒店;宾馆酒店\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.8\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:57.755255</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-44')">[▼ 详情]</span>
+            </div>
+            <div id="details-44" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_03_lilmBoB69tmHUqPRrQWT9303",
+  "args": {
+    "id": "B0FFIYRXYP"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:58.162466</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-45')">[▼ 详情]</span>
+            </div>
+            <div id="details-45" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_03_lilmBoB69tmHUqPRrQWT9303",
+  "result": "{\n  \"id\": \"B0FFIYRXYP\",\n  \"name\": \"SLH·大理海纳尔云墅度假酒店\",\n  \"location\": \"100.127388,25.715980\",\n  \"address\": \"苍海高尔夫国际社区2-5栋\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;住宿服务相关;住宿服务相关\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.9\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:58.162644</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-46')">[▼ 详情]</span>
+            </div>
+            <div id="details-46" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_04_zC54ANb9VpIqCTR6zuR40157",
+  "args": {
+    "id": "B0KKXM4QWL"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:58.575190</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-47')">[▼ 详情]</span>
+            </div>
+            <div id="details-47" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_04_zC54ANb9VpIqCTR6zuR40157",
+  "result": "{\n  \"id\": \"B0KKXM4QWL\",\n  \"name\": \"大理王宫酒店\",\n  \"location\": \"100.146520,25.683673\",\n  \"address\": \"大理镇大理古城西门村委会天龙八部影视城弹石路以西\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;宾馆酒店;宾馆酒店\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.8\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:58.575361</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-48')">[▼ 详情]</span>
+            </div>
+            <div id="details-48" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_05_eRdKiJggDWjz888r0TiL3552",
+  "args": {
+    "id": "B0FFJYK99L"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:59.083441</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-49')">[▼ 详情]</span>
+            </div>
+            <div id="details-49" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_05_eRdKiJggDWjz888r0TiL3552",
+  "result": "{\n  \"id\": \"B0FFJYK99L\",\n  \"name\": \"大理颐雲酒店\",\n  \"location\": \"100.136898,25.697766\",\n  \"address\": \"大理镇弘圣路77号\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;住宿服务相关;住宿服务相关\",\n  \"alias\": [],\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.8\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:59.083635</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-50')">[▼ 详情]</span>
+            </div>
+            <div id="details-50" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_06_tFdN75OtEI9kTSYxvd2l0311",
+  "args": {
+    "id": "B036815RS4"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 4</span>
+                <span class="timestamp">2026-05-03T23:19:59.493002</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-51')">[▼ 详情]</span>
+            </div>
+            <div id="details-51" class="details">
+                <pre>{
+  "tool_name": "maps_search_detail",
+  "tool_call_id": "call_06_tFdN75OtEI9kTSYxvd2l0311",
+  "result": "{\n  \"id\": \"B036815RS4\",\n  \"name\": \"大理THE ONE古城一号院\",\n  \"location\": \"100.161050,25.688009\",\n  \"address\": \"大理古城博爱路9号\",\n  \"business_area\": [],\n  \"city\": \"大理白族自治州\",\n  \"type\": \"住宿服务;宾馆酒店;宾馆酒店\",\n  \"alias\": \"HOTELS&RESORTS THEONE\",\n  \"cost\": [],\n  \"star\": [],\n  \"opentime2\": [],\n  \"rating\": \"4.6\",\n  \"lowest_price\": [],\n  \"hotel_ordering\": \"1\",\n  \"open_time\": []\n}"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event model-output">
+            <div class="event-header">
+                <span class="step">Step 5</span>
+                <span class="timestamp">2026-05-03T23:20:40.037095</span>
+                <span class="event-type">model_output</span>
+                <span class="expandable" onclick="toggleDetails('details-52')">[▼ 详情]</span>
+            </div>
+            <div id="details-52" class="details">
+                <pre>{
+  "content": "所有数据已收集完毕！现在整理成完整素材返回。",
+  "tool_calls": 1,
+  "usage": {
+    "total_tokens": 17382,
+    "cost": 0.0
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-call">
+            <div class="event-header">
+                <span class="step">Step 5</span>
+                <span class="timestamp">2026-05-03T23:20:40.037268</span>
+                <span class="event-type">tool_call</span>
+                <span class="expandable" onclick="toggleDetails('details-53')">[▼ 详情]</span>
+            </div>
+            <div id="details-53" class="details">
+                <pre>{
+  "tool_name": "Finish",
+  "tool_call_id": "call_00_hYrJHuwe0fhQKR2wxKht1380",
+  "args": {
+    "answer": "# 🗺️ 大理 2 日游素材汇编（2026.05.03 - 05.04）\n\n---\n\n## 🌤️ 一、目的地天气\n\n| 日期 | 白天天气 | 夜间天气 | 温度范围 | 风力 |\n|:---|:---|:---|:---:|:---:|\n| **5月3日（周日）** | 🌧️ 中雨 | 🌦️ 小雨 | 8～14°C | 北风1-3级 |\n| **5月4日（周一）** | 🌦️ 小雨 | ⛅ 多云 | 8～15°C | 北风1-3级 |\n\n> ⚠️ **温馨提示**：两天均有降雨，气温偏凉（8~15°C），建议携带雨具和外套。不过雨中的大理别有一番意境哦！\n\n---\n\n## 🏞️ 二、自然风光景点推荐\n\n### ⭐ 核心必去景点\n\n#### 1️⃣ 洱海\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理市（环湖区域） |\n| 🌐 **经纬度** | 100.266116, 25.643582 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 📝 **简介** | 大理\"风花雪月\"四景之\"洱海月\"，云南第二大淡水湖，湖光山色美不胜收 |\n| 🚲 **推荐玩法** | 环湖骑行/自驾、才村码头游船、网红S弯打卡 |\n\n#### 2️⃣ 大理苍山世界地质公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | Z013附近 |\n| 🌐 **经纬度** | 100.119072, 25.657252 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 🕐 **开放时间** | 08:00-18:00 |\n| 📝 **简介** | 苍山十九峰十八溪，可乘索道登顶俯瞰洱海全景，含玉带云游路、中和寺等景点 |\n| 🚡 **索道** | 洗马潭索道、感通索道、中和索道 |\n\n#### 3️⃣ 崇圣寺三塔文化旅游区\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三塔公园 |\n| 🌐 **经纬度** | 100.143044, 25.704129 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAAA级景区** |\n| 🕐 **开放时间** | 07:30-18:30（最晚17:00入园） |\n| 📝 **简介** | 大理标志性建筑，千年古塔群，背靠苍山面朝洱海 |\n\n#### 4️⃣ 大理古城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 护国路172号 |\n| 🌐 **经纬度** | 100.164000, 25.694836 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n| 📝 **简介** | 南诏国古都，青石板路、白族民居、文艺小店，晚上有夜市和酒吧 |\n\n#### 5️⃣ 洱海公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 洱河南路1号 |\n| 🌐 **经纬度** | 100.247321, 25.603053 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n\n#### 6️⃣ 天龙八部影视城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城(洗马潭索道东北) |\n| 🌐 **经纬度** | 100.149121, 25.680112 |\n| ⭐ **评分** | ⭐ 4.4 |\n| 🏆 **等级** | AAA级景区 |\n| 🕐 **开放时间** | 10:00-22:00（最晚21:00入场） |\n\n#### 7️⃣ 大理桃溪生态谷\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三文笔村 |\n| 🌐 **经纬度** | 100.135807, 25.697116 |\n| ⭐ **评分** | ⭐ 3.9 |\n| 🕐 **开放时间** | 全天24小时 |\n| 📝 **简介** | 自然生态山谷，溪流潺潺，绿树成荫 |\n\n#### 8️⃣ 洱海生态廊道北段\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 丰凡网红打卡点东南侧 |\n| 🌐 **经纬度** | 100.166981, 25.736484 |\n| ⭐ **评分** | ⭐ 4.1 |\n| 📝 **简介** | 网红骑行/步行道，沿途风光绝佳 |\n\n### 🌿 其他自然风光点（可顺路游览）\n| 景点名称 | 地址 | 特点 |\n|:---|:---|:---|\n| 🏝️ **龙龛古渡** | 大理镇环海西路东30米 | 洱海边古渡口，日落超美 |\n| 🌲 **龙龛夫妻树** | 龙龛码头店东侧180米 | 网红打卡树 |\n| 🌊 **才村码头** | 月华路尽头 | 洱海游船码头 |\n| 🏔️ **玉带云游路** | 苍山景区内 | 苍山半山徒步道 |\n| 🌸 **大理张家翠园半山花谷** | 隐仙路南50米 | 半山花海 |\n| 🏞️ **双鸳溪** | 星期五超市东北侧130米 | 苍山十八溪之一 |\n\n---\n\n## 🏨 三、豪华酒店候选\n\n### ⭐ 评分 4.8+ 顶级推荐\n\n#### 🥇 SLH·大理海纳尔云墅度假酒店 ⭐4.9\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 苍海高尔夫国际社区2-5栋 |\n| 🌐 **经纬度** | 100.127388, 25.715980 |\n| 📝 **简介** | 全球奢华酒店(SLH)成员，苍山脚下高尔夫社区，尊享私密 |\n\n#### 🥇 大理麓椿花园酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城弘圣路5号（大理大学旁） |\n| 🌐 **经纬度** | 100.161368, 25.668575 |\n| 📝 **简介** | 花园式度假酒店，靠近苍山，环境清幽 |\n\n#### 🥇 大理王宫酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 天龙八部影视城弹石路以西 |\n| 🌐 **经纬度** | 100.146520, 25.683673 |\n| 📝 **简介** | 仿古王宫风格，毗邻天龙八部影视城，气势恢宏 |\n\n#### 🥇 大理颐雲酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇弘圣路77号 |\n| 🌐 **经纬度** | 100.136898, 25.697766 |\n| 📝 **简介** | 高端度假酒店，靠近崇圣寺三塔 |\n\n### ⭐ 评分 4.6-4.7 精选推荐\n\n#### 🥈 大理古城红龙井酒店 ⭐4.7（五星级）\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路红龙井16号 |\n| 🌐 **经纬度** | 100.160632, 25.690828 |\n| 📝 **简介** | 五星级酒店，位于古城核心红龙井水景街 |\n\n#### 🥈 既下山SUNYATA酒店 ⭐4.7\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 叶榆路南51号 |\n| 🌐 **经纬度** | 100.166743, 25.694729 |\n| 📝 **简介** | 设计感极强的高端精品酒店，位于古城内 |\n\n#### 🥈 大理THE ONE古城一号院 ⭐4.6\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路9号 |\n| 🌐 **经纬度** | 100.161050, 25.688009 |\n| 📝 **简介** | 庭院式度假酒店，古城核心位置 |\n\n### 🏅 其他豪华候选\n| 酒店名称 | 评分 | 地址 | 特点 |\n|:---|:---:|:---|:---|\n| 大理古城悦山海伴山墅奢酒店 | ⭐- | 弘圣路21号 | 半山别墅 |\n| 大理古城五彩云酒店 | 4.7 | 绿玉路60号 | 白族风格 |\n| 大理桃溪梦蝶秘境庄园 | 4.6 | 北门街160号 | 近崇圣寺 |\n| 大理古城层林酒店 | 4.7 | 银苍路41号 | 古城内 |\n\n---\n\n## 📋 四、行程建议速览\n\n```\nDay① 5/3（中雨转小雨 8~14°C）\n  🏛️ 上午：大理古城漫步 → 下午：崇圣寺三塔（雨中三塔别有韵味）\n  🌙 晚上：古城内晚餐，入住豪华酒店\n\nDay② 5/4（小雨转多云 8~15°C）\n  🏔️ 上午：苍山世界地质公园（乘索道上山，云雾缭绕）\n  🌊 下午：洱海生态廊道骑行 / 洱海公园\n  🌅 傍晚：龙龛古渡看日落\n```\n\n> 🎒 **出行装备建议**：雨伞/雨衣、防水外套、运动鞋、外套（气温仅8~15°C，早晚较冷）\n\n---\n\n以上所有信息均来自**高德地图真实数据**，包含景点名称、地址、经纬度、评分、开放时间，以及豪华酒店候选清单，可直接用于后续生成详细行程规划！"
+  }
+}</pre>
+            </div>
+        </div>
+
+        <div class="event tool-result">
+            <div class="event-header">
+                <span class="step">Step 5</span>
+                <span class="timestamp">2026-05-03T23:20:40.037786</span>
+                <span class="event-type">tool_result</span>
+                <span class="expandable" onclick="toggleDetails('details-54')">[▼ 详情]</span>
+            </div>
+            <div id="details-54" class="details">
+                <pre>{
+  "tool_name": "Finish",
+  "tool_call_id": "call_00_hYrJHuwe0fhQKR2wxKht1380",
+  "status": "success",
+  "result": "最终答案: # 🗺️ 大理 2 日游素材汇编（2026.05.03 - 05.04）\n\n---\n\n## 🌤️ 一、目的地天气\n\n| 日期 | 白天天气 | 夜间天气 | 温度范围 | 风力 |\n|:---|:---|:---|:---:|:---:|\n| **5月3日（周日）** | 🌧️ 中雨 | 🌦️ 小雨 | 8～14°C | 北风1-3级 |\n| **5月4日（周一）** | 🌦️ 小雨 | ⛅ 多云 | 8～15°C | 北风1-3级 |\n\n> ⚠️ **温馨提示**：两天均有降雨，气温偏凉（8~15°C），建议携带雨具和外套。不过雨中的大理别有一番意境哦！\n\n---\n\n## 🏞️ 二、自然风光景点推荐\n\n### ⭐ 核心必去景点\n\n#### 1️⃣ 洱海\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理市（环湖区域） |\n| 🌐 **经纬度** | 100.266116, 25.643582 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 📝 **简介** | 大理\"风花雪月\"四景之\"洱海月\"，云南第二大淡水湖，湖光山色美不胜收 |\n| 🚲 **推荐玩法** | 环湖骑行/自驾、才村码头游船、网红S弯打卡 |\n\n#### 2️⃣ 大理苍山世界地质公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | Z013附近 |\n| 🌐 **经纬度** | 100.119072, 25.657252 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 🕐 **开放时间** | 08:00-18:00 |\n| 📝 **简介** | 苍山十九峰十八溪，可乘索道登顶俯瞰洱海全景，含玉带云游路、中和寺等景点 |\n| 🚡 **索道** | 洗马潭索道、感通索道、中和索道 |\n\n#### 3️⃣ 崇圣寺三塔文化旅游区\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三塔公园 |\n| 🌐 **经纬度** | 100.143044, 25.704129 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAAA级景区** |\n| 🕐 **开放时间** | 07:30-18:30（最晚17:00入园） |\n| 📝 **简介** | 大理标志性建筑，千年古塔群，背靠苍山面朝洱海 |\n\n#### 4️⃣ 大理古城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 护国路172号 |\n| 🌐 **经纬度** | 100.164000, 25.694836 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n| 📝 **简介** | 南诏国古都，青石板路、白族民居、文艺小店，晚上有夜市和酒吧 |\n\n#### 5️⃣ 洱海公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 洱河南路1号 |\n| 🌐 **经纬度** | 100.247321, 25.603053 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n\n#### 6️⃣ 天龙八部影视城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城(洗马潭索道东北) |\n| 🌐 **经纬度** | 100.149121, 25.680112 |\n| ⭐ **评分** | ⭐ 4.4 |\n| 🏆 **等级** | AAA级景区 |\n| 🕐 **开放时间** | 10:00-22:00（最晚21:00入场） |\n\n#### 7️⃣ 大理桃溪生态谷\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三文笔村 |\n| 🌐 **经纬度** | 100.135807, 25.697116 |\n| ⭐ **评分** | ⭐ 3.9 |\n| 🕐 **开放时间** | 全天24小时 |\n| 📝 **简介** | 自然生态山谷，溪流潺潺，绿树成荫 |\n\n#### 8️⃣ 洱海生态廊道北段\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 丰凡网红打卡点东南侧 |\n| 🌐 **经纬度** | 100.166981, 25.736484 |\n| ⭐ **评分** | ⭐ 4.1 |\n| 📝 **简介** | 网红骑行/步行道，沿途风光绝佳 |\n\n### 🌿 其他自然风光点（可顺路游览）\n| 景点名称 | 地址 | 特点 |\n|:---|:---|:---|\n| 🏝️ **龙龛古渡** | 大理镇环海西路东30米 | 洱海边古渡口，日落超美 |\n| 🌲 **龙龛夫妻树** | 龙龛码头店东侧180米 | 网红打卡树 |\n| 🌊 **才村码头** | 月华路尽头 | 洱海游船码头 |\n| 🏔️ **玉带云游路** | 苍山景区内 | 苍山半山徒步道 |\n| 🌸 **大理张家翠园半山花谷** | 隐仙路南50米 | 半山花海 |\n| 🏞️ **双鸳溪** | 星期五超市东北侧130米 | 苍山十八溪之一 |\n\n---\n\n## 🏨 三、豪华酒店候选\n\n### ⭐ 评分 4.8+ 顶级推荐\n\n#### 🥇 SLH·大理海纳尔云墅度假酒店 ⭐4.9\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 苍海高尔夫国际社区2-5栋 |\n| 🌐 **经纬度** | 100.127388, 25.715980 |\n| 📝 **简介** | 全球奢华酒店(SLH)成员，苍山脚下高尔夫社区，尊享私密 |\n\n#### 🥇 大理麓椿花园酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城弘圣路5号（大理大学旁） |\n| 🌐 **经纬度** | 100.161368, 25.668575 |\n| 📝 **简介** | 花园式度假酒店，靠近苍山，环境清幽 |\n\n#### 🥇 大理王宫酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 天龙八部影视城弹石路以西 |\n| 🌐 **经纬度** | 100.146520, 25.683673 |\n| 📝 **简介** | 仿古王宫风格，毗邻天龙八部影视城，气势恢宏 |\n\n#### 🥇 大理颐雲酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇弘圣路77号 |\n| 🌐 **经纬度** | 100.136898, 25.697766 |\n| 📝 **简介** | 高端度假酒店，靠近崇圣寺三塔 |\n\n### ⭐ 评分 4.6-4.7 精选推荐\n\n#### 🥈 大理古城红龙井酒店 ⭐4.7（五星级）\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路红龙井16号 |\n| 🌐 **经纬度** | 100.160632, 25.690828 |\n| 📝 **简介** | 五星级酒店，位于古城核心红龙井水景街 |\n\n#### 🥈 既下山SUNYATA酒店 ⭐4.7\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 叶榆路南51号 |\n| 🌐 **经纬度** | 100.166743, 25.694729 |\n| 📝 **简介** | 设计感极强的高端精品酒店，位于古城内 |\n\n#### 🥈 大理THE ONE古城一号院 ⭐4.6\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路9号 |\n| 🌐 **经纬度** | 100.161050, 25.688009 |\n| 📝 **简介** | 庭院式度假酒店，古城核心位置 |\n\n### 🏅 其他豪华候选\n| 酒店名称 | 评分 | 地址 | 特点 |\n|:---|:---:|:---|:---|\n| 大理古城悦山海伴山墅奢酒店 | ⭐- | 弘圣路21号 | 半山别墅 |\n| 大理古城五彩云酒店 | 4.7 | 绿玉路60号 | 白族风格 |\n| 大理桃溪梦蝶秘境庄园 | 4.6 | 北门街160号 | 近崇圣寺 |\n| 大理古城层林酒店 | 4.7 | 银苍路41号 | 古城内 |\n\n---\n\n## 📋 四、行程建议速览\n\n```\nDay① 5/3（中雨转小雨 8~14°C）\n  🏛️ 上午：大理古城漫步 → 下午：崇圣寺三塔（雨中三塔别有韵味）\n  🌙 晚上：古城内晚餐，入住豪华酒店\n\nDay② 5/4（小雨转多云 8~15°C）\n  🏔️ 上午：苍山世界地质公园（乘索道上山，云雾缭绕）\n  🌊 下午：洱海生态廊道骑行 / 洱海公园\n  🌅 傍晚：龙龛古渡看日落\n```\n\n> 🎒 **出行装备建议**：雨伞/雨衣、防水外套、运动鞋、外套（气温仅8~15°C，早晚较冷）\n\n---\n\n以上所有信息均来自**高德地图真实数据**，包含景点名称、地址、经纬度、评分、开放时间，以及豪华酒店候选清单，可直接用于后续生成详细行程规划！"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-05-03T23:20:40.040116</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-55')">[▼ 详情]</span>
+            </div>
+            <div id="details-55" class="details">
+                <pre>{
+  "duration": 76.785876,
+  "total_steps": 5,
+  "final_answer": "# 🗺️ 大理 2 日游素材汇编（2026.05.03 - 05.04）\n\n---\n\n## 🌤️ 一、目的地天气\n\n| 日期 | 白天天气 | 夜间天气 | 温度范围 | 风力 |\n|:---|:---|:---|:---:|:---:|\n| **5月3日（周日）** | 🌧️ 中雨 | 🌦️ 小雨 | 8～14°C | 北风1-3级 |\n| **5月4日（周一）** | 🌦️ 小雨 | ⛅ 多云 | 8～15°C | 北风1-3级 |\n\n> ⚠️ **温馨提示**：两天均有降雨，气温偏凉（8~15°C），建议携带雨具和外套。不过雨中的大理别有一番意境哦！\n\n---\n\n## 🏞️ 二、自然风光景点推荐\n\n### ⭐ 核心必去景点\n\n#### 1️⃣ 洱海\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理市（环湖区域） |\n| 🌐 **经纬度** | 100.266116, 25.643582 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 📝 **简介** | 大理\"风花雪月\"四景之\"洱海月\"，云南第二大淡水湖，湖光山色美不胜收 |\n| 🚲 **推荐玩法** | 环湖骑行/自驾、才村码头游船、网红S弯打卡 |\n\n#### 2️⃣ 大理苍山世界地质公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | Z013附近 |\n| 🌐 **经纬度** | 100.119072, 25.657252 |\n| ⭐ **评分** | ⭐ 4.7 |\n| 🕐 **开放时间** | 08:00-18:00 |\n| 📝 **简介** | 苍山十九峰十八溪，可乘索道登顶俯瞰洱海全景，含玉带云游路、中和寺等景点 |\n| 🚡 **索道** | 洗马潭索道、感通索道、中和索道 |\n\n#### 3️⃣ 崇圣寺三塔文化旅游区\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三塔公园 |\n| 🌐 **经纬度** | 100.143044, 25.704129 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAAA级景区** |\n| 🕐 **开放时间** | 07:30-18:30（最晚17:00入园） |\n| 📝 **简介** | 大理标志性建筑，千年古塔群，背靠苍山面朝洱海 |\n\n#### 4️⃣ 大理古城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 护国路172号 |\n| 🌐 **经纬度** | 100.164000, 25.694836 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n| 📝 **简介** | 南诏国古都，青石板路、白族民居、文艺小店，晚上有夜市和酒吧 |\n\n#### 5️⃣ 洱海公园\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 洱河南路1号 |\n| 🌐 **经纬度** | 100.247321, 25.603053 |\n| ⭐ **评分** | ⭐ 4.8 |\n| 🏆 **等级** | 🏅 **AAAA级景区** |\n| 🕐 **开放时间** | 全天24小时开放 |\n\n#### 6️⃣ 天龙八部影视城\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城(洗马潭索道东北) |\n| 🌐 **经纬度** | 100.149121, 25.680112 |\n| ⭐ **评分** | ⭐ 4.4 |\n| 🏆 **等级** | AAA级景区 |\n| 🕐 **开放时间** | 10:00-22:00（最晚21:00入场） |\n\n#### 7️⃣ 大理桃溪生态谷\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇三文笔村 |\n| 🌐 **经纬度** | 100.135807, 25.697116 |\n| ⭐ **评分** | ⭐ 3.9 |\n| 🕐 **开放时间** | 全天24小时 |\n| 📝 **简介** | 自然生态山谷，溪流潺潺，绿树成荫 |\n\n#### 8️⃣ 洱海生态廊道北段\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 丰凡网红打卡点东南侧 |\n| 🌐 **经纬度** | 100.166981, 25.736484 |\n| ⭐ **评分** | ⭐ 4.1 |\n| 📝 **简介** | 网红骑行/步行道，沿途风光绝佳 |\n\n### 🌿 其他自然风光点（可顺路游览）\n| 景点名称 | 地址 | 特点 |\n|:---|:---|:---|\n| 🏝️ **龙龛古渡** | 大理镇环海西路东30米 | 洱海边古渡口，日落超美 |\n| 🌲 **龙龛夫妻树** | 龙龛码头店东侧180米 | 网红打卡树 |\n| 🌊 **才村码头** | 月华路尽头 | 洱海游船码头 |\n| 🏔️ **玉带云游路** | 苍山景区内 | 苍山半山徒步道 |\n| 🌸 **大理张家翠园半山花谷** | 隐仙路南50米 | 半山花海 |\n| 🏞️ **双鸳溪** | 星期五超市东北侧130米 | 苍山十八溪之一 |\n\n---\n\n## 🏨 三、豪华酒店候选\n\n### ⭐ 评分 4.8+ 顶级推荐\n\n#### 🥇 SLH·大理海纳尔云墅度假酒店 ⭐4.9\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 苍海高尔夫国际社区2-5栋 |\n| 🌐 **经纬度** | 100.127388, 25.715980 |\n| 📝 **简介** | 全球奢华酒店(SLH)成员，苍山脚下高尔夫社区，尊享私密 |\n\n#### 🥇 大理麓椿花园酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城弘圣路5号（大理大学旁） |\n| 🌐 **经纬度** | 100.161368, 25.668575 |\n| 📝 **简介** | 花园式度假酒店，靠近苍山，环境清幽 |\n\n#### 🥇 大理王宫酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 天龙八部影视城弹石路以西 |\n| 🌐 **经纬度** | 100.146520, 25.683673 |\n| 📝 **简介** | 仿古王宫风格，毗邻天龙八部影视城，气势恢宏 |\n\n#### 🥇 大理颐雲酒店 ⭐4.8\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理镇弘圣路77号 |\n| 🌐 **经纬度** | 100.136898, 25.697766 |\n| 📝 **简介** | 高端度假酒店，靠近崇圣寺三塔 |\n\n### ⭐ 评分 4.6-4.7 精选推荐\n\n#### 🥈 大理古城红龙井酒店 ⭐4.7（五星级）\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路红龙井16号 |\n| 🌐 **经纬度** | 100.160632, 25.690828 |\n| 📝 **简介** | 五星级酒店，位于古城核心红龙井水景街 |\n\n#### 🥈 既下山SUNYATA酒店 ⭐4.7\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 叶榆路南51号 |\n| 🌐 **经纬度** | 100.166743, 25.694729 |\n| 📝 **简介** | 设计感极强的高端精品酒店，位于古城内 |\n\n#### 🥈 大理THE ONE古城一号院 ⭐4.6\n| 项目 | 内容 |\n|:---|:---|\n| 📍 **地址** | 大理古城博爱路9号 |\n| 🌐 **经纬度** | 100.161050, 25.688009 |\n| 📝 **简介** | 庭院式度假酒店，古城核心位置 |\n\n### 🏅 其他豪华候选\n| 酒店名称 | 评分 | 地址 | 特点 |\n|:---|:---:|:---|:---|\n| 大理古城悦山海伴山墅奢酒店 | ⭐- | 弘圣路21号 | 半山别墅 |\n| 大理古城五彩云酒店 | 4.7 | 绿玉路60号 | 白族风格 |\n| 大理桃溪梦蝶秘境庄园 | 4.6 | 北门街160号 | 近崇圣寺 |\n| 大理古城层林酒店 | 4.7 | 银苍路41号 | 古城内 |\n\n---\n\n## 📋 四、行程建议速览\n\n```\nDay① 5/3（中雨转小雨 8~14°C）\n  🏛️ 上午：大理古城漫步 → 下午：崇圣寺三塔（雨中三塔别有韵味）\n  🌙 晚上：古城内晚餐，入住豪华酒店\n\nDay② 5/4（小雨转多云 8~15°C）\n  🏔️ 上午：苍山世界地质公园（乘索道上山，云雾缭绕）\n  🌊 下午：洱海生态廊道骑行 / 洱海公园\n  🌅 傍晚：龙龛古渡看日落\n```\n\n> 🎒 **出行装备建议**：雨伞/雨衣、防水外套、运动鞋、外套（气温仅8~15°C，早晚较冷）\n\n---\n\n以上所有信息均来自**高德地图真实数据**，包含景点名称、地址、经纬度、评分、开放时间，以及豪华酒店候选清单，可直接用于后续生成详细行程规划！",
+  "status": "success"
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">5</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">52,300</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">0.0s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">5</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td>maps_search_detail</td><td>16</td></tr>
+<tr><td>maps_text_search</td><td>5</td></tr>
+<tr><td>Thought</td><td>1</td></tr>
+<tr><td>maps_weather</td><td>1</td></tr>
+<tr><td>Finish</td><td>1</td></tr>
+
+        </table>
+
+        
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
